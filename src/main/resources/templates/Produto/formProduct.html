@@ -5,12 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/formProduct.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://kit.fontawesome.com/eff814ecb5.js" crossorigin="anonymous"></script>
 <title>Projeto Licitação</title>
+
+
+
+
+
 </head>
 <body>
-	<main style="background-image:url('img/img-academy/pexels-aleksandar-pasaric-325185.jpg')">
+	<main>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark">
 		  <div class="container">
@@ -45,7 +51,7 @@
 		            <i class="fas fa-box"></i> Produto
 		          </a>
 		          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-		            <li><a class="dropdown-item" href="/insertProduto"><i class="fas fa-box"></i> Cadastrar Produto</a></li>
+		            <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Cadastrar Produto</a></li>
 		            <li><a class="dropdown-item" href="#"> <i class="fas fa-search"></i>Pesquisar Produto</a></li>
 		          </ul>
 		        </li>
@@ -55,28 +61,49 @@
 		  </div>
 		</nav>
 	</header>
-	<section>
-		<h1>
-                Sistema de Geração de Propostas de Licitação.
-        </h1>
-        <div class="botao">
-        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-file"></i> Formatar Proposta</button>
+	
+	
+		<div class="container">
+		<h3>+ Inserir Produto</h3>
+			<form  method="post" onsubmit="return validateForm()" action="/insertProduct" th:object="${produto}">
+			
+				<div class="form-group">
+					<i class="fas fa-hashtag"></i> <label for="itemArea">Item</label>
+					<input type="number" class="form-control"  id="field_item" th:field="*{item}" >
+				</div>
+			
+				<div class="form-group">
+					<i class="fas fa-info"></i> <label for="descriptionArea">Descrição do Produto</label>
+    				<input class="form-control" id="field_descricao" th:field="*{descricao}">
+				</div>
+				
+				<div class="form-group">
+					<i class="fas fa-weight-hanging"></i><label for="descriptionArea">Unidade</label>
+					<input class="form-control" id="field_unidade" th:field="*{unidade}">
+				</div>
+				
+				<div class="form-group">
+					<i class="fas fa-dollar-sign"></i> <label for="priceArea">Preço Unitário</label>
+    				<input type="number" step=".01" class="form-control" id="field_preco" placeholder="" th:field="*{preco_unitario}">
+				</div>
+				
+				
+				<div class="buttons">
+					<button type="submit" class="btn btn-success"><i class="fas fa-pencil-alt"></i> Cadastrar</button>&nbsp; &nbsp;
+					<button type="button" class="btn btn-danger"><i class="fas fa-backward"></i> Voltar</button>
+				</div>
+			</form>
 		</div>
-	</section>
 		
-
+		
 		
 	</main>
 	
-	<footer> Todos os direitos reservados à <strong><a href="https://github.com/GabrielPereira187" target="_blank">Gabriel de Barros Pereira</a><strong> &copy; 2021 </footer>
+	<footer> Todos os direitos reservados à <strong><a href="https://github.com/GabrielPereira187" target="_blank">Gabriel de Barros Pereira</a></strong> &copy; 2021 </footer>
 	
 	
-	
+	<script src="scripts/cadastroProduto.js"></script>
 	<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-<!-- maybe for the future  -->
-<!-- <i class="fas fa-edit"></i> <i class="fas fa-trash"></i>  -->
