@@ -24,6 +24,15 @@ public class ProductController {
 		return mv;
 	}
 	
+	
+	@GetMapping("/ListaProduto")
+	public ModelAndView Listproduct(Produto produto) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Produto/ListaProdutos");
+		mv.addObject("produto", new Produto());
+		return mv;
+	}
+	
 	@PostMapping("insertProduct")
 	public ModelAndView inserirProduto(Produto produto) {
 		ModelAndView mv = new ModelAndView();

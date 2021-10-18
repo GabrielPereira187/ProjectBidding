@@ -13,8 +13,8 @@ header{
 	background-color: black;
 }
 
-footer{
-	background-color: #CCDEEC;
+h4{
+	margin-top: 30px;
 }
 
 .form-group{
@@ -22,6 +22,12 @@ footer{
 }
 h3{
 	margin: 20px 0px 20px 0px;
+}
+
+
+.botaoCEP{
+	display: flex;
+	justify-content: center;
 }
 .buttons{
 	margin-bottom: 8px;
@@ -33,6 +39,3 @@ h3{
 	height: 30px;
 }
 
-.principal{
-	height: 601px;
-}

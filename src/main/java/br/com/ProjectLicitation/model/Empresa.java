@@ -28,6 +28,7 @@ public class Empresa {
     private String telefone;
     private String email;
     private String cep;
+    private String numero;
 	private String logradouro;
 	private String complemento;
 	private String bairro;
