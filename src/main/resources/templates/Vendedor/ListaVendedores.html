@@ -30,10 +30,29 @@
 			      <th scope="col">Cargo</th>
 			      <th scope="col">RG</th>
 			      <th scope="col">CPF</th>
+			      <th scope="col">Ação</th>
 			    </tr>
 			  </thead>
+			  <tbody>
+			  	<tr scope="row" th:each="vendedores : ${ListaVendedores}">
+			  		<td th:text="${vendedores.id}"></td>
+			  		<td th:text="${vendedores.nome}"></td>
+			  		<td th:text="${vendedores.cargo}"></td>
+			  		<td th:text="${vendedores.rg}"></td>
+			  		<td th:text="${vendedores.cpf}"></td>
+			  		<td>
+				  		<a class="btn btn-primary" th:href="@{alterarVendedor/{id}(id=${vendedores.id})}">
+				  			<i class="fas fa-edit"></i> Editar
+				  		</a>
+				  		<a class="btn btn-danger" th:href="@{deletarVendedor/{id}(id=${vendedores.id})}">
+				  			<i class="fas fa-trash"></i> Excluir
+				  		</a>
+				  	</td>
+			  	</tr>
+			  </tbody>
 			</table>
 		</div>
+		
 	</main>
 	
 	<div th:replace="fragmentos/fragmentos-pg-inicial :: rodape"></div>	

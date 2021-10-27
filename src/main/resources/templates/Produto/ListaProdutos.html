@@ -25,13 +25,29 @@
 			<table class="table table-bordered table-hover">
 			  <thead>
 			    <tr>
-			      <th scope="col">ID</th>
 			      <th scope="col">Item</th>
 			      <th scope="col">Descrição</th>
 			      <th scope="col">Unidade</th>
 			      <th scope="col">Preço Unitário</th>
+			      <th scope="col">Ação</th>
 			    </tr>
 			  </thead>
+			  <tbody>
+				  <tr scope="row" th:each="produtos : ${ListaProdutos}">
+				  	<td th:text="${produtos.item}"></td>
+				  	<td th:text="${produtos.descricao}"></td>
+				  	<td th:text="${produtos.unidade}"></td>
+				  	<td th:text="'R$' + ${produtos.preco_unitario}"></td>
+				  	<td>
+				  		<a class="btn btn-primary" th:href="@{alterar/{id}(id=${produtos.id})}">
+				  			<i class="fas fa-edit"></i> Editar
+				  		</a>
+				  		<a class="btn btn-danger" th:href="@{deletar/{id}(id=${produtos.id})}">
+				  			<i class="fas fa-trash"></i> Excluir
+				  		</a>
+				  	</td>
+				  </tr>
+			  </tbody>
 			</table>
 			
 			

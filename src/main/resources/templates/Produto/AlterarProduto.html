@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/formProduct.css">
+<link rel="shortcut icon" href="/img/img-academy/bid.ico"/>
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://kit.fontawesome.com/eff814ecb5.js" crossorigin="anonymous"></script>
+<title>Projeto Licitação</title>
+
+
+
+
+
+</head>
+<body>
+	<main class="principal">
+	<div th:replace="/fragmentos/fragmento-outras-pgs :: cabecalho-outras"></div>
+		<div class="container">
+		<h3>+ Alterar Produto</h3>
+			<form  method="post" onsubmit="return validateForm()" action="/alterar" th:object="${produto}">
+			<input type="hidden" th:field="*{id}">
+				<div class="form-group">
+					<i class="fas fa-hashtag"></i> <label for="itemArea">Item</label>
+					<input type="number" class="form-control"  id="field_item" th:field="*{item}" >
+				</div>
+			
+				<div class="form-group">
+					<i class="fas fa-info"></i> <label for="descriptionArea">Descrição do Produto</label>
+    				<input class="form-control" id="field_descricao" th:field="*{descricao}">
+				</div>
+				
+				<div class="form-group">
+					<i class="fas fa-weight-hanging"></i><label for="descriptionArea">Unidade</label>
+					<input class="form-control" id="field_unidade" th:field="*{unidade}">
+				</div>
+				
+				<div class="form-group">
+					<i class="fas fa-dollar-sign"></i> <label for="priceArea">Preço Unitário</label>
+    				<input type="number" step=".01" class="form-control" id="field_preco" placeholder="" th:field="*{preco_unitario}">
+				</div>
+				
+				<div th:replace="/fragmentos/fragmento-outras-pgs :: buttons"></div>	
+				
+			</form>
+		</div>
+		
+	</main>
+	
+	<div th:replace="/fragmentos/fragmentos-pg-inicial :: rodape"></div>
+	
+	<script src="/scripts/cadastroProduto.js"></script>
+	<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

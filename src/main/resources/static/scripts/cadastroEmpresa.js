@@ -27,5 +27,9 @@ function validaForm(){
 		alert("Entre com um CEP");
 		return false;
 	}
+	document.getElementById("cidade").disabled = false;
+	document.getElementById("bairro").disabled = false;
+	document.getElementById("uf").disabled = false;
+	document.getElementById("logradouro").disabled = false;
 	
 }
