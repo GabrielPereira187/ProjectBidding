@@ -1,4 +1,5 @@
 package br.com.ProjectLicitation.controller;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,6 +67,11 @@ public class EmpresaController {
 		repositorio.deleteById(id);
 		mv.setViewName("redirect:/ListaEmpresa");
 		return mv;
+	}
+	
+	@GetMapping("/todas-empresas")
+	public List<Empresa> listarEmpresas(){
+		return repositorio.findAll();
 	}
 	
 	

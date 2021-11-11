@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/formProduct.css">
+<link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="img/img-academy/bid.ico"/>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://kit.fontawesome.com/eff814ecb5.js" crossorigin="anonymous"></script>
@@ -21,36 +22,36 @@
 		<div th:replace="fragmentos/fragmento-outras-pgs :: cabecalho-outras"></div>
 		<div class="container">
 			<h3> Lista de Produtos</h3>
+			<div class="table-wrapper-scroll-y my-custom-scrollbar">
+				<table class="table table-bordered table-striped mb-0">
+				  <thead>
+				    <tr>
+				      <th scope="col">Item</th>
+				      <th scope="col">Descrição</th>
+				      <th scope="col">Unidade</th>
+				      <th scope="col">Preço Unitário</th>
+				      <th scope="col">Ação</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+					  <tr scope="row" th:each="produtos : ${ListaProdutos}">
+					  	<td th:text="${produtos.item}"></td>
+					  	<td th:text="${produtos.descricao}"></td>
+					  	<td th:text="${produtos.unidade}"></td>
+					  	<td th:text="'R$' + ${produtos.preco_unitario}"></td>
+					  	<td>
+					  		<a class="btn btn-primary" th:href="@{alterar/{id}(id=${produtos.id})}">
+					  			<i class="fas fa-edit"></i> Editar
+					  		</a>
+					  		<a class="btn btn-danger" th:href="@{deletar/{id}(id=${produtos.id})}">
+					  			<i class="fas fa-trash"></i> Excluir
+					  		</a>
+					  	</td>
+					  </tr>
+				  </tbody>
+				</table>
 			
-			<table class="table table-bordered table-hover">
-			  <thead>
-			    <tr>
-			      <th scope="col">Item</th>
-			      <th scope="col">Descrição</th>
-			      <th scope="col">Unidade</th>
-			      <th scope="col">Preço Unitário</th>
-			      <th scope="col">Ação</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-				  <tr scope="row" th:each="produtos : ${ListaProdutos}">
-				  	<td th:text="${produtos.item}"></td>
-				  	<td th:text="${produtos.descricao}"></td>
-				  	<td th:text="${produtos.unidade}"></td>
-				  	<td th:text="'R$' + ${produtos.preco_unitario}"></td>
-				  	<td>
-				  		<a class="btn btn-primary" th:href="@{alterar/{id}(id=${produtos.id})}">
-				  			<i class="fas fa-edit"></i> Editar
-				  		</a>
-				  		<a class="btn btn-danger" th:href="@{deletar/{id}(id=${produtos.id})}">
-				  			<i class="fas fa-trash"></i> Excluir
-				  		</a>
-				  	</td>
-				  </tr>
-			  </tbody>
-			</table>
-			
-			
+			</div>
 			
 		</div>
 		

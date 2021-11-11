@@ -13,18 +13,25 @@ header{
 	background-color: black;
 }
 
-footer{
-	background-color: #CCDEEC;
+h4{
+	margin-top: 30px;
 }
 
 .form-group{
 	margin-top: 30px;
 }
-h3{
+h2{
 	margin: 20px 0px 20px 0px;
 }
+
+h3{
+	margin: 20px 0px 20px 0px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
 .buttons{
-	margin-bottom: 8px;
+	margin: 20px 0px 40px 0px;
 	display: flex;
 	justify-content: center;
 }
@@ -34,6 +41,14 @@ h3{
 }
 
 .principal{
-	height: 601px;
+	min-height: 2500px;
 }
 
+.row{
+	margin: 20px 0px 20px 0px;
+}
+
+.center{
+	display: flex;
+	justify-content: center;
+}

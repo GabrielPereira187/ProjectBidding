@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.ProjectLicitation.Repositories.VendedorRepository;
-import br.com.ProjectLicitation.model.Empresa;
 import br.com.ProjectLicitation.model.Vendedor;
 @RestController
 @Controller

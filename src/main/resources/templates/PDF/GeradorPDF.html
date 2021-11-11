@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="shortcut icon" href="/img/img-academy/bid.ico"/>
+<link rel="stylesheet" href="/css/formVendedor.css">
+<link rel="stylesheet" href="/css/PDF.css">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://kit.fontawesome.com/eff814ecb5.js" crossorigin="anonymous"></script>
+<title>Projeto Licitação</title>
+</head>
+<body onload="ConsultaDados()" >
+	<main class="principal">
+	<div th:replace="/fragmentos/fragmento-outras-pgs :: cabecalho-outras"></div>
+	<div class="container">
+	<h2>Gerador de PDF</h2>
+			<form>
+			<h3>Dados do Vendedor</h3>
+				<label>Nome do Vendedor</label> 
+				<select class="form-control" id="vendedores">
+					<option disabled selected>Escolha o nome do vendedor desejado para busca</option>
+				</select>
+				<div class="buttons">
+					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Vendedor</button>
+				</div>
+				<div class="row">
+				  <div class="col-md-4">
+				  	<label>RG do Vendedor</label>
+				  	<input type="text" class="form-control" disabled>
+				  </div>
+				  <div class="col-md-4">
+				  	<label>CPF do Vendedor</label>
+				  	<input type="text" class="form-control" disabled>
+				  </div>
+				  <div class="col-md-4">
+				  	<label>Cargo do Vendedor</label>
+				  	<input type="text" class="form-control" disabled>
+				  </div>
+				</div>
+				<hr>
+				<h3>Dados da Empresa</h3>
+				<label>Nome da Empresa</label> 
+				<select class="form-control" id="empresas">
+					<option>Escolha o nome da empresa desejada para busca</option>
+				</select>
+				<div class="buttons">
+					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar dados da Empresa</button>
+				</div>
+				<div class="row">
+					  <div class="col-md-4">
+					  	<label>CNPJ da Empresa</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>Inscrição Estadual</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>Telefone da Empresa</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+				</div>
+				
+				<div class="row">
+					  <div class="col-md-4">
+					  	<label>Email da Empresa</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>CEP</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>Cidade</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+				</div>
+				
+				<div class="row">
+					  <div class="col-md-6">
+					  	<label>Logradouro</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-6">
+					  	<label>Bairro</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+				 </div>
+				 
+				 <div class="row">
+					  <div class="col-md-4">
+					  	<label>Número</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>Estado</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+					  <div class="col-md-4">
+					  	<label>Complemento</label>
+					  	<input type="text" class="form-control" disabled>
+					  </div>
+				</div>
+				<hr>
+				<h3>Dados do Produto</h3>
+				<label>Item do Produto</label> 
+			  	<select class="form-control" id="produtos">
+					<option>Escolha o número do item do produto desejado para busca</option>
+				</select>
+				<div class="center row">
+					  <div class="col-md-3">
+					  	 <label>Quantidade do produto</label>
+						 <input class="form-control" type="number">	
+					  </div>
+				</div>
+				 <div class="buttons">
+					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Produto</button>
+				 </div>
+				<div class="table-wrapper-scroll-y my-custom-scrollbar">
+				<table class="table table-bordered table-striped mb-0">
+					  <tr>
+					    <th>Item</th>
+					    <th>Descrição</th>
+					    <th>Unidade</th>
+					    <th>Preço Unitário</th>
+					    <th>Quantidade</th>
+					    <th>Valor</th>
+					  </tr>
+					  <tbody>
+					  	<tr scope="row" th:each="empresas : ${ListaEmpresas}">
+					  		<td id="item"></td>
+					  		<td id="item_desc"></td>
+					  		<td id="item_un"></td>
+					  		<td id="item_prec"></td>
+					  		<td id="item_qtde"></td>
+					  		<td id="item_val"></td>
+					  	</tr>
+				  </tbody>
+				</table>
+				</div> 
+		
+				<div th:replace="fragmentos/fragmento-outras-pgs :: buttons"></div>	 
+				  		
+			</form>
+	</div>
+				
+		
+	</main>
+	
+	<footer>
+			<div th:replace="/fragmentos/fragmentos-pg-inicial :: rodape"></div>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+	<script src="/scripts/cadastroEmpresa.js"></script>
+	<script src="/scripts/Pdf.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
+	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>
