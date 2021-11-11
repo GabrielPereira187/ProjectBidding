@@ -10,8 +10,8 @@ A arquitetura do programa é a MVC, as classes usadas estão dentro da pasta Mod
 ## Tecnologias Utilizadas
 
 As tecnologias utilizadas para o desenvolvimento dessa aplicação foram:<br>
-Front: **HTML,CSS,JS,Bootstrap,ThymeLeaf**
-Back:**Java SpringBoot**
-Banco de Dados: **MySql**
-Gerenciador de Pacotes: **Maven**
-Biblioteca de PDF: **Itext**
+Front: **HTML,CSS,JS,Bootstrap,ThymeLeaf**<br>
+Back:**Java SpringBoot**<br>
+Banco de Dados: **MySql**<br>
+Gerenciador de Pacotes: **Maven**<br>
+Biblioteca de PDF: **Itext**<br>
