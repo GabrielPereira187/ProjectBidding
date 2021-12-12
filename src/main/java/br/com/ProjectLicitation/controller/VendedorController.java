@@ -75,5 +75,13 @@ public class VendedorController {
 	public List<Vendedor> listarVendedores(){
 		return repositorio.findAll();
 	}
+	
+	@GetMapping("/buscarVendedor/{id}")
+	public Vendedor buscar(@PathVariable("id") int id) {
+		Vendedor vendedor = repositorio.findById(id).get();
+		return vendedor;
+	}
+	
+	
 
 }

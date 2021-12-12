@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="shortcut icon" href="/img/img-academy/bid.ico"/>
-<link rel="stylesheet" href="/css/formVendedor.css">
 <link rel="stylesheet" href="/css/PDF.css">
 <link rel="stylesheet" href="/css/style.css">
 <script src="https://kit.fontawesome.com/eff814ecb5.js" crossorigin="anonymous"></script>
@@ -18,26 +17,64 @@
 	<div class="container">
 	<h2>Gerador de PDF</h2>
 			<form>
+			<h3>Dados da Proposta</h3>
+				<div class="row">
+				  <div class="col-md-4">
+				  	<label>Nome do Documento</label>
+				  	<input type="text" class="form-control" id="nome_doc">
+				  </div>
+				  <div class="col-md-4">
+				  	<label>Nome da Penitenciária</label>
+				  	<input type="text" class="form-control" id="nome_penit">
+				  </div>
+				  <div class="col-md-4">
+				  	<label>Nome do Setor</label>
+				  	<input type="text" class="form-control" id="nome_setor" >
+				  </div>
+				</div>
+				
+				<div class="row">
+				  <div class="col-md-3">
+				  	<label>Data e Hora</label>
+				  	<input type="datetime-local" class="form-control" id="data_hora">
+				  </div>
+				  <div class="col-md-3">
+				  	<label>Pregão</label>
+				  	<input type="text" class="form-control" id="pregao">
+				  </div>
+				  <div class="col-md-3">
+				  	<label>Processo</label>
+				  	<input type="text" class="form-control" id="processo">
+				  </div>
+				  <div class="col-md-3">
+				  	<label>Objeto</label>
+				  	<input type="text" class="form-control" id="objeto">
+				  </div>
+				  
+				</div>
+				
+				
+			<hr>	
 			<h3>Dados do Vendedor</h3>
 				<label>Nome do Vendedor</label> 
 				<select class="form-control" id="vendedores">
 					<option disabled selected>Escolha o nome do vendedor desejado para busca</option>
 				</select>
 				<div class="buttons">
-					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Vendedor</button>
+					<button type="button" onclick="buscarVendedor()" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Vendedor</button>
 				</div>
 				<div class="row">
 				  <div class="col-md-4">
 				  	<label>RG do Vendedor</label>
-				  	<input type="text" class="form-control" disabled>
+				  	<input type="text" class="form-control" id="rg" disabled>
 				  </div>
 				  <div class="col-md-4">
 				  	<label>CPF do Vendedor</label>
-				  	<input type="text" class="form-control" disabled>
+				  	<input type="text" class="form-control" id="cpf" disabled>
 				  </div>
 				  <div class="col-md-4">
 				  	<label>Cargo do Vendedor</label>
-				  	<input type="text" class="form-control" disabled>
+				  	<input type="text" class="form-control" id="cargo" disabled>
 				  </div>
 				</div>
 				<hr>
@@ -47,61 +84,61 @@
 					<option>Escolha o nome da empresa desejada para busca</option>
 				</select>
 				<div class="buttons">
-					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar dados da Empresa</button>
+					<button type="button" onclick="buscarEmpresa()" class="btn btn-info"><i class="fas fa-search"></i> Buscar dados da Empresa</button>
 				</div>
 				<div class="row">
 					  <div class="col-md-4">
 					  	<label>CNPJ da Empresa</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="cnpj" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>Inscrição Estadual</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="inscr" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>Telefone da Empresa</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="tel" disabled>
 					  </div>
 				</div>
 				
 				<div class="row">
 					  <div class="col-md-4">
 					  	<label>Email da Empresa</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="email" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>CEP</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="cep" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>Cidade</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="cidade" disabled>
 					  </div>
 				</div>
 				
 				<div class="row">
 					  <div class="col-md-6">
 					  	<label>Logradouro</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="logradouro" disabled>
 					  </div>
 					  <div class="col-md-6">
 					  	<label>Bairro</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="bairro" disabled>
 					  </div>
 				 </div>
 				 
 				 <div class="row">
 					  <div class="col-md-4">
 					  	<label>Número</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="num" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>Estado</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="uf" disabled>
 					  </div>
 					  <div class="col-md-4">
 					  	<label>Complemento</label>
-					  	<input type="text" class="form-control" disabled>
+					  	<input type="text" class="form-control" id="compl" disabled>
 					  </div>
 				</div>
 				<hr>
@@ -113,14 +150,14 @@
 				<div class="center row">
 					  <div class="col-md-3">
 					  	 <label>Quantidade do produto</label>
-						 <input class="form-control" type="number">	
+						 <input class="form-control" type="number" id="Qtde">	
 					  </div>
 				</div>
 				 <div class="buttons">
-					<button type="button" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Produto</button>
+					<button type="button" onclick="addTbl()" class="btn btn-info"><i class="fas fa-search"></i> Buscar Dados do Produto</button>
 				 </div>
 				<div class="table-wrapper-scroll-y my-custom-scrollbar">
-				<table class="table table-bordered table-striped mb-0">
+				<table class="table table-bordered table-striped mb-0" id="tbPedido">
 					  <tr>
 					    <th>Item</th>
 					    <th>Descrição</th>
@@ -128,20 +165,11 @@
 					    <th>Preço Unitário</th>
 					    <th>Quantidade</th>
 					    <th>Valor</th>
+					    <th>Ação</th>
 					  </tr>
-					  <tbody>
-					  	<tr scope="row" th:each="empresas : ${ListaEmpresas}">
-					  		<td id="item"></td>
-					  		<td id="item_desc"></td>
-					  		<td id="item_un"></td>
-					  		<td id="item_prec"></td>
-					  		<td id="item_qtde"></td>
-					  		<td id="item_val"></td>
-					  	</tr>
-				  </tbody>
 				</table>
 				</div> 
-		
+				<button onclick="hora()" class="btn btn-info" type="button">Testar</button>
 				<div th:replace="fragmentos/fragmento-outras-pgs :: buttons"></div>	 
 				  		
 			</form>

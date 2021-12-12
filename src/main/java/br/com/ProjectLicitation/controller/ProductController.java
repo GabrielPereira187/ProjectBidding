@@ -75,7 +75,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/buscarItem/{item}")
-	public List<Produto> buscarItem(@PathVariable("item") int item) {
+	public Produto buscarItem(@PathVariable("item") int item) {
 		return repository.findByitem(item);
 	}
 	

@@ -74,7 +74,11 @@ public class EmpresaController {
 		return repositorio.findAll();
 	}
 	
-	
+	@GetMapping("/buscarEmpresa/{id}")
+	public Empresa buscar(@PathVariable("id") int id) {
+		Empresa empresa = repositorio.findById(id).get();
+		return empresa;
+	}
 	
 	
 }

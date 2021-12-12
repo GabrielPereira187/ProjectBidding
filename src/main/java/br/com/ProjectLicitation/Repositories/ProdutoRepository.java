@@ -1,10 +1,10 @@
 package br.com.ProjectLicitation.Repositories;
 
-import java.util.List;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.ProjectLicitation.model.Produto;
@@ -14,7 +14,7 @@ import br.com.ProjectLicitation.model.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 	
 	@Query(value = "select * from product where item = :item", nativeQuery = true)
-	List<Produto> findByitem(int item);
+	Produto findByitem(int item);
 	
 
 	
