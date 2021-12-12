@@ -169,8 +169,12 @@
 					  </tr>
 				</table>
 				</div> 
-				<button onclick="hora()" class="btn btn-info" type="button">Testar</button>
-				<div th:replace="fragmentos/fragmento-outras-pgs :: buttons"></div>	 
+				<div class="buttons" th:fragment="buttons">
+					<button type="submit" class="btn btn-success"><i class="fas fa-pencil-alt"></i> Gerar Proposta</button>&nbsp; &nbsp;
+					<a href="/"><button  class="btn btn-danger"><i class="fas fa-backward"></i> Voltar pro início</button>&nbsp; &nbsp;</a>
+					<button type="reset" class="btn btn-primary"><i class="fas fa-broom"></i> Limpar</button>
+					
+				</div>
 				  		
 			</form>
 	</div>

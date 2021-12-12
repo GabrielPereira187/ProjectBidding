@@ -53,14 +53,23 @@ h3{
 	justify-content: center;
 }
 
+footer{
+	margin-top: 10px;
+}
+
+buttons{
+	display: flex;
+}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  .principal{
-    height:3100px;
-  }
-  .my-custom-scrollbar {
-	position: relative;
-	height:100px;
-	overflow: auto;
-}
+	  .principal{
+	    height:3100px;
+	  }
+	  .my-custom-scrollbar {
+		position: relative;
+		height:100px;
+		overflow: auto;
+	}
+
+
 }

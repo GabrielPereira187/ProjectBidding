@@ -74,6 +74,12 @@ function compare( a, b ) {
 
 function buscarVendedor(){
 	var nomeV = document.getElementById("vendedores").value;
+	
+	if(nomeV == "Escolha o nome do vendedor desejado para busca"){
+		alert("Escolha uma opção valida de vendedor")
+	}
+	else{
+	
     nomeV = nomeV.replace(/\D+/g, '');
 	
 	var url = "http://localhost:8080/buscarVendedor/" + nomeV;
@@ -90,11 +96,16 @@ function buscarVendedor(){
 		document.getElementById("cargo").value = response.cargo;			
 	}
 	request.send();
+	}
 }
 
 function buscarEmpresa(){
 	var nomeE = document.getElementById("empresas").value;
-    nomeE = nomeE.replace(/\D+/g, '');
+	if(nomeE == "Escolha o nome da empresa desejada para busca"){
+		alert("Escolha uma opção valida de empresa")
+	}
+	else{
+	    nomeE = nomeE.replace(/\D+/g, '');
 	var url = "http://localhost:8080/buscarEmpresa/" + nomeE;
 	var request = new XMLHttpRequest();
 	request.open('GET', url);
@@ -113,13 +124,28 @@ function buscarEmpresa(){
 	}
 	
 	request.send();
+	}
 }
 
 
 function addTbl(){
-	
 	var qtde = document.getElementById("Qtde").value;
 	var nomeP = document.getElementById("produtos").value;
+	if(qtde == "" && nomeP == "Escolha o número do item do produto desejado para busca"){
+		alert("Digite a quantidade desejada e selecione uma opcao de produto valida")
+		return
+	}
+	
+	if(qtde == ""){
+		alert("Digite a quantidade desejada")
+		return
+	}
+	if(nomeP == "Escolha o número do item do produto desejado para busca"){
+		alert("Escolha uma opcao de produto valida")
+		return
+	}
+	else{
+	
 	var tbPedido = document.getElementById("tbPedido").value;
 	
 	var url = "http://localhost:8080/buscarItem/" + nomeP;
@@ -154,6 +180,7 @@ function addTbl(){
 					  		</a>`				
 	}
 	request.send();
+	}
 	
 }
 
@@ -187,10 +214,12 @@ function table_to_array() {
 
 function teste(){
 	var cnpj = document.getElementById("cnpj").value;
+	cnpj = cnpj.replace('/','-');
 	var cep = document.getElementById("cep").value; 
 	var tel = document.getElementById("tel").value;
 	var uf = document.getElementById("uf").value;
 	var inscr = document.getElementById("inscr").value;
+	inscr = inscr.replace('/','-');
 	var num = document.getElementById("num").value;
 	var bairro = document.getElementById("bairro").value;
 	var logradouro = document.getElementById("logradouro").value;
@@ -206,17 +235,17 @@ function teste(){
 	var mes = data_hora.substring(5,7);
 	var ano = data_hora.substring(0,4);
 	var hora = data_hora.substring(11,16);
-	var data = dia + "/" + mes +  "/" + ano;
+	var data = dia + "-" + mes +  "-" + ano;
 	
 	var rg = document.getElementById("rg").value;
 	var cpf = document.getElementById("cpf").value;
 	var cargo = document.getElementById("cargo").value;	
 	
 	var nomeE = document.getElementById("empresas").value;
-    nomeE = nomeE.replace(/\D+/g, '');
+    nomeE = nomeE.replace(/[^a-zA-Z.]/g,'');
 
 	var nomeV = document.getElementById("vendedores").value;
-    nomeV = nomeV.replace(/\D+/g, '');
+    nomeV = nomeV.replace(/[^a-zA-Z.]/g,'');
 
 	var pregao = document.getElementById("pregao").value;
 	var processo = document.getElementById("processo").value;
@@ -224,7 +253,7 @@ function teste(){
 	
 	var tb = []
 	tb = table_to_array();
-	console.log(tb);
+	console.log(cnpj + "" + inscr);
 	var url = "http://localhost:8080/gerar-pdf/" 
 	+ tb 
 	+ "/" + cnpj 
@@ -250,6 +279,8 @@ function teste(){
 	+ "/" + pregao
 	+ "/" + processo
 	+ "/" + objeto;
+	
+	console.log(url)
 	
 	var request = new XMLHttpRequest();
 	

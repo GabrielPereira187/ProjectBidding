@@ -32,8 +32,8 @@ public class PDFController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/gerar-pdf/{firstNameIds}/{cnpj}/{inscr}/{tel}/{email}/{cep}/{cidade}/{rua}/{bairro}/{numero}/{uf}/{rg}/{cpf}/{nome_empresa}/{nome_vendedor}"
-			+ "/{nome_doc}/{nome_penit}/{nome_setor/{data}/{hora}/{pregao}/{processo}/{objeto}", method=RequestMethod.GET)
+	@RequestMapping(value="/gerar-pdf/{firstNameIds}/{cnpj}/{inscr}/{tel}/{email}/{cep}/{cidade}/{rua}/{bairro}/{numero}/{uf}/{rg}/{cpf}/{cargo}/{nome_empresa}/{nome_vendedor}"
+			+ "/{nome_doc}/{nome_penit}/{nome_setor}/{data}/{hora}/{pregao}/{processo}/{objeto}", method=RequestMethod.GET)
 	@ResponseBody
 	public void gerar(@PathVariable String[] firstNameIds,
 			@PathVariable("cnpj") String cnpj,
@@ -61,6 +61,8 @@ public class PDFController {
 			@PathVariable("objeto") String objeto
 			) 
 	{
+		System.out.print(nomeE);
+		System.out.print(rua);
 		ArrayList<Pedido> produtos = new ArrayList<Pedido>();
 		
 		int cont = 0;
@@ -107,7 +109,8 @@ public class PDFController {
 				hora,
 				pregao,
 				processo,
-				objeto); 
+				objeto);
+		System.out.print("aaaaaa");
 	}
 
 }
